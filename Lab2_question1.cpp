@@ -1,21 +1,17 @@
 #include<iostream>
 using namespace std;
 
-/*
- * */
 class node
 { 
   public:
-  int val;
+  int value;
   node* next;
   node();
   {
-    val=0;
+    value=0;
     next=NULL;
   }
 };
-/*
- * */
 class SLL
 {
   private:
@@ -36,12 +32,10 @@ class SLL
   int countItems();
   void display();
 };
-/*
- * */
 void SLL::insertEnd(int data)
 {
   node* temp1=new node;
-  temp1->val=data;
+  temp1->value=data;
   temp1->next=NULL;
   if(head==NULL)
   {
@@ -60,20 +54,20 @@ void SLL::insertEnd(int data)
 void SLL::insertAt(int pos, int data)
 {
   node *temp2=new node();
-  temp2->val=data;
+  temp2->value=data;
   temp2->next=NULL;
   node *traverse;
   traverse=head;
-  if(pos==size+1)//If to be inserted at the end
+  if(pos==size+1)//to insert at the end
   {
    insertEnd(data);
   }
-  else if(pos==1)//If to be inserted at the beginning
+  else if(pos==1)//to insert at the beginning
   {
    temp->next=head;
    head=temp;
   }
-  else if(pos>1 && pos<=size)//If to be inserted from second to the second last position
+  else if(pos>1 && pos<=size)//to be inserted from second to the second last position
   {
    for(int i=1;i<pos;i++)
    {
@@ -88,7 +82,7 @@ void SLL::insertAt(int pos, int data)
   }
   else//If pos exceeds size
   {
-   cout<<"\n \nSORRY ! ! ! Linked List does not have that many elements";
+   cout<<"\n \nToo many elements";
   }
 }
 /*
@@ -122,7 +116,7 @@ int SLL::deleteAt(int pos)
   {
    head=traverse->next;
    traverse->next==NULL;
-   return traverse->val;
+   return traverse->value;
    delete traverse;
   }
   else if(pos>1 && pos<=size)//If  second to the last element to be deleted
@@ -135,16 +129,16 @@ int SLL::deleteAt(int pos)
        a=traverse->next;
        traverse->next=a->next;
        a->next=NULL;
-       return a->val;
+       return a->value;
        delete a;
      }
      else
        traverse=traverse->next;
    }
   }
-  else//If pos exceeds size
+  else//If position exceeds size
   {
-   cout<<"\n \nSORRY ! ! ! Linked List does not have that many elements";
+   cout<<"\n \nLinked List does not have that many elements";
    return 0;
   }
 /*
@@ -165,14 +159,14 @@ void display()
    cout<<"\n \n \nThe elements in the linked list are: ";
    while(traverse!=NULL)
    {  
-    cout<<traverse->val<<" -> ";
+    cout<<traverse->value<<" -> ";
     traverse=traverse->next;  
    }
    cout<<"NULL";
   }
  
  else
-  cout<<"\n \n \nThe Linked List is empty ! ! !";
+  cout<<"\n \n \nThe Linked List is empty";
 }
 /*
  * */
